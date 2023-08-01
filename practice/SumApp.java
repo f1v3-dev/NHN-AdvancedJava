@@ -1,35 +1,58 @@
 package practice;
 
-public class PrintArgs { // name space
+// 변수명 : Sum
+// 값 : { ... }
+// 타입 : class
+// Life time : 프로그램 실행 - 종료
+public class SumApp { // name space
 
     // sum :: (double, double) -> double
-    static double sum(double x, double y) {
-        return x + y;
-    }
+    // static double sum(double x, double y) {
+    // return x + y;
+    // }
 
     // sum :: double[] arrays -> double
     // [Polymorphism (다형성)]
     // Overloading 사용하여 인자 개수에 따라 다르게 적용
-    // 함수의 Type signature -> [static int sum2(int num);]
-    static int sum2(int num) {
+    // 함수의 Type signature -> [static int sum(int num);]
+    static int sum(int num) {
         return ((num + 1) * num) / 2;
     }
 
-    static double sum2(double... numbers) {
-        double result = 0;
-        for (int index = 0; index < numbers.length; index++) {
-            result += numbers[index];
-        }
-        return result;
-    }
+    // numbers, result 둘 다 Local
+    // But, numbers는 매개변수이므로 값을 지정하지 않아도 된다.
+    // numbers : Dynamic
+    // result : Static
+    // static double sum(double... numbers) {
+    // double result = 0;
+    // numbers[1] = 0;
+    // for (int index = 0; index < numbers.length; index++) {
+    // result += numbers[index];
+    // }
+    // return result;
+    // }
 
     // 범위 연산 -> Overloading은 사용하면 안된다.
     // 5, 10을 넘기면 답 = 15? / 5 ~ 10사이를 더한 값?
     // 어떻게 해결해야 하는가?
-    // static double sum2(int min, int max) {
-    //
-    // }
 
+    /**
+     * Java : Call by value (변수에 할당된 값을 복사해서 전달) Call by reference는 변수의 주소 값 자체를 전달 -> C++에서만 new로
+     * 생성한 객체는 값이 주소이기 때문에 Heap에 저장
+     */
+
+
+    /**
+     * 변수 = (이름, 값, 범위(scope), 타입(저장 공간의 크기, 값의 해석), Life Time) '이름'이 (...)을 간추림 -> Abstraction
+     * [추상화] 즉, Abstraction은 이름을 붙이는 것 바인딩(binding)이란? : 프로그램에서 사용되는 변수, 메서드 등 모든 것들이 결정되도록 연결해주는 것
+     * 바인딩이 되는 시점에 따라 [Static Binding], [Dynamic Binding]
+     **/
+
+    private static double sum(double... numbers) {
+        // return reduce(new Sum(), 0, numbers);
+        return Mathx.reduce(new Plus(), 0, numbers);
+    }
+    
     public static void main(String[] args) {
 
         System.out.println("args의 길이 : " + args.length);
@@ -97,24 +120,41 @@ public class PrintArgs { // name space
 
 
         /**
-         * Step5. sum2 사용
+         * Step5. sum 사용
          */
 
+        // Heap - reference count, garbage collection
+        // 참조 횟수를 계산한 후 0이 되면 가비지 컬렉션이 메모리 해제
         double[] numbers = new double[args.length];
 
         for (int index = 0; index < args.length; index++) {
             numbers[index] = Double.valueOf(args[index]);
         }
 
-        System.out.println(sum2(numbers));
-        System.out.println(sum2(2, 3));
-        System.out.println(sum2(2, 3.5, 4, 10));
+        System.out.println(sum(numbers));
+        System.out.println(sum(2, 3));
+        System.out.println(sum(2, 3.5, 4, 10));
 
         // 둘의 값이 같다고 하는 이유 : Type Promotion
-        System.out.println(sum2(10)
-                 == sum2(1, 3, 2, 6, 5, 4, 8, 9, 7, 10)); // 55.0
-                
-        // System.out.println(sum2(10));
-        // System.out.println(sum2(1, 3, 2, 6, 5, 4, 8, 9, 7, 10));
+        System.out.println(sum(10) == sum(1, 3, 2, 6, 5, 4, 8, 9, 7, 10)); // 55.0
+    
+        // System.out.println(Mathx.reduce(new BinaryOperation() {
+        //     public double apply(double x, double y) {
+        //         return x + y;
+        //     }
+        // }, 0, 1, 2, 3, 4));
+
+        // BinaryOperation plus = new BinaryOperation() {
+        //     public double apply(double x, double y) {
+        //         return x + y;
+        //     }
+        // };
+        // System.out.println(Mathx.reduce((x, y) -> x + y, 0, 1, 2, 3, 4));
+
+        // 다음과 같이 람다식으로 사용할 떄는 Functional implements여야 함
+        // 즉, 한가지의 추상 메서드만 존재
+        BinaryOperation plus = (x, y) -> x + y;
+        System.out.println(Mathx.reduce(plus, 0, 1, 2, 3, 4));
+
     }
 }
