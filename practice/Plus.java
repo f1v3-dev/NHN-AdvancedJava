@@ -7,5 +7,4 @@ public final class Plus implements BinaryOperation{
         return x + y;
     }
 
-
 }
