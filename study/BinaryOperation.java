@@ -1,6 +1,4 @@
-package practice;
-
-// interface는 지켜야 할 조건을 기술
+package study;
 
 @FunctionalInterface
 public interface BinaryOperation {

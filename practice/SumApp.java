@@ -3,7 +3,7 @@ package practice;
 // 변수명 : Sum
 // 값 : { ... }
 // 타입 : class
-// Life time : 프로그램 실행 - 종료
+// Life time : 프로그램 실행 - 종료        
 public class SumApp { // name space
 
     // sum :: (double, double) -> double

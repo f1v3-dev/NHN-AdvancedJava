@@ -7,8 +7,7 @@ public class Mathx {
     }
 
     /**
-     * Sum.java와 Product.java의 코드는 매우 유사하다.
-     * 이 두개의 코드를 하나의 코드로 변경해보자
+     * Sum.java와 Product.java의 코드는 매우 유사하다. 이 두개의 코드를 하나의 코드로 변경해보자
      */
 
     private static double product(double... numbers) {
@@ -25,7 +24,17 @@ public class Mathx {
         return result;
     }
 
-        // sum :: (double, double) -> double
+    public static double reduceIf(Predicate predicate, BinaryOperation binaryOperation, double init, double... numbers) {
+        double result = init;
+        for (double num : numbers) {
+            if (predicate.apply(num)) {
+                result = binaryOperation.apply(result, num);
+            }
+        }
+        return result;
+    }
+    
+    // sum :: (double, double) -> double
     // static double sum(double x, double y) {
     // return x + y;
     // }
@@ -71,7 +80,8 @@ public class Mathx {
         // return reduce(new Sum(), 0, numbers);
         return Mathx.reduce(new Plus(), 0, numbers);
     }
-    
+
+
 
     public static void main(String[] args) {
 
@@ -88,16 +98,16 @@ public class Mathx {
         System.out.println(product(3, 4, 5, 6, 123));
 
         // BinaryOperation multiply = new BinaryOperation() {
-        //     public double apply(double x, double y) {
-        //         return x * y;
-        //     }
+        // public double apply(double x, double y) {
+        // return x * y;
+        // }
         // };
         // System.out.println(reduce(multiply, 1, 1, 2, 3, 4));
 
         // System.out.println(reduce(new BinaryOperation() {
-        //     public double apply(double x, double y) {
-        //         return x * y;
-        //     }
+        // public double apply(double x, double y) {
+        // return x * y;
+        // }
         // }, 1, 1, 2, 3 ,4));
 
         BinaryOperation multiply = (x, y) -> x * y;
