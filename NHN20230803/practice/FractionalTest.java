@@ -1,21 +1,26 @@
 package practice;
 
+import java.util.Arrays;
+
 public class FractionalTest {
 
     /**
-     * 유리수의 덧셈 공식 유리수 4개 새로운 클래스 X 네 개의 숫자를 받을 때 까지 반복해서 받기 정수 네개만 들어온다면 통과 에러 처리 생략 -> 무조건 네 개가
-     * 들어온다고 약속 main에 전부 생성a
+     * 유리수의 덧셈 공식 유리수 4개 새로운 클래스 X 네 개의 숫자를 받을 때 까지 반복해서 받기 정수 네개만 들어온다면 통과 에러 처리 생략 무조건 4개가 들어온다고
+     * 약속 main에 전부 생성
      */
 
     private FractionalTest() {}
 
     public static int[] fractional(int numerator, int denominator) {
         if (denominator == 0) {
-            throw new IllegalArgumentException("demoniator is zero(0)");
+            throw new IllegalArgumentException("denominator is zero(0)");
         }
-        return new int[] {numerator, denominator};
+
+        int div = Mathx.gcd(numerator, denominator);
+        return new int[] {numerator / div, denominator / div};
     }
 
+    // Getter
     public static int numerator(int[] arr) {
         return arr[0];
     }
@@ -24,19 +29,23 @@ public class FractionalTest {
         return arr[1];
     }
 
-    public static int[] add(int[] arr1, int[] arr2) {
-        int[] result = new int[2];
-        result[0] = numerator(arr1) * denominator(arr2) + denominator(arr1) * numerator(arr2);
-        result[1] = denominator(arr1) * denominator(arr2);
+    public static int[] add(int[] firstArr, int[] secondArr) {
+        int x = numerator(firstArr) * denominator(secondArr)
+                + denominator(firstArr) * numerator(secondArr);
+        int y = denominator(firstArr) * denominator(secondArr);
 
-        int div = Mathx.gcd(result[0], result[1]);
-        result[0] /= div;
-        result[1] /= div;
-        return result;
+        return fractional(x, y);
     }
 
     private static String toString(int[] arr) {
         return numerator(arr) + "/" + denominator(arr);
+    }
+
+    public static boolean equal(int[] firstArr, int[] secondArr) {
+        if (numerator(firstArr) / denominator(firstArr) == numerator(secondArr) / denominator(secondArr)) {
+            return true;
+        }
+        return false;
     }
 
 
@@ -70,13 +79,14 @@ public class FractionalTest {
         int[] x = fractional(1, 2);
         int[] y = fractional(2, 4);
         int[] z = fractional(4, 8);
-        int[] w = fractional(8, 16);
+        int[] w = fractional(5, 10);
         int[] val = FractionalTest.add(add(x, add(x, y)), add(w, z));
         System.out.println(val[0] + "/" + val[1]);
 
         System.out.println(toString(add(fractional(1, 2), fractional(4, 8))));
+
+        System.out.println(equal(x, y));
+        System.out.println(equal(add(x, y), add(z, w)));
     }
 
 }
-
-// function recursion? GCD -> int int -> int
