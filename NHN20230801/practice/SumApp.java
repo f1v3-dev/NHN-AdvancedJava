@@ -1,4 +1,4 @@
-package practice;
+package NHN20230801.practice;
 
 // 변수명 : Sum
 // 값 : { ... }

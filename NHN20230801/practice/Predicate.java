@@ -1,4 +1,4 @@
-package practice;
+package NHN20230801.practice;
 
 @FunctionalInterface
 public interface Predicate {
