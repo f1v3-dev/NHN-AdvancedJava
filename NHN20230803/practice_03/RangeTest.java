@@ -1,4 +1,4 @@
-package practice_03;
+package NHN20230803.practice_03;
 
 public class RangeTest {
 

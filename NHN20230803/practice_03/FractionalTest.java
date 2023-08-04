@@ -1,54 +1,8 @@
-package practice_03;
+package NHN20230803.practice_03;
 
 public class FractionalTest {
 
     private FractionalTest() {}
-
-    public static int[] fractional(int numerator, int denominator) {
-        if (denominator == 0) {
-            throw new IllegalArgumentException("denominator is zero(0)");
-        }
-
-        int[] rep = new int[] {numerator, denominator};
-        // normalize(rep);
-        // classInvariant(rep); <- ?
-        return rep;
-    }
-
-    // Getter
-    public static int numerator(int[] arr) {
-        normalize(arr);
-        return arr[0];
-    }
-
-    public static int denominator(int[] arr) {
-        normalize(arr);
-        return arr[1];
-    }
-
-    public static int[] add(int[] firstArr, int[] secondArr) {
-        int x = numerator(firstArr) * denominator(secondArr)
-                + denominator(firstArr) * numerator(secondArr);
-        int y = denominator(firstArr) * denominator(secondArr);
-
-        return fractional(x, y);
-    }
-
-    public static String toString(int[] arr) {
-        return numerator(arr) + "/" + denominator(arr);
-    }
-
-    public static boolean equals(int[] firstArr, int[] secondArr) {
-        return (numerator(firstArr) == numerator(secondArr)
-                && denominator(firstArr) == denominator(secondArr));
-    }
-
-    private static void normalize(int[] arr) {
-        int gcdValue = Mathx.gcd(arr[0], arr[1]);
-        arr[0] /= gcdValue;
-        arr[1] /= gcdValue;
-    }
-
 
     public static void main(String[] args) {
 
@@ -87,12 +41,15 @@ public class FractionalTest {
          * 
          */
 
-        int[][] rs = {fractional(1, 2), fractional(2, 4),
-             fractional(4, 8), fractional(5, 10)};
+        Fractional[] rs = {
+                new Fractional(1, 2),
+                new Fractional(2, 4),
+                new Fractional(4, 8),
+                new Fractional(5, 10)
+        };
 
-        for (int[] arr : rs) {
-            System.out.println(toString(arr));
+        for (Fractional r : rs) {
+            System.out.println(r.toString());
         }
     }
-
 }

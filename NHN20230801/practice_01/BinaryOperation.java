@@ -1,4 +1,4 @@
-package practice_01;
+package NHN20230801.practice_01;
 
 // interface는 지켜야 할 조건을 기술
 

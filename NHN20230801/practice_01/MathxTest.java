@@ -1,6 +1,4 @@
-package practice_01;
-
-import practice_01.Mathx;
+package NHN20230801.practice_01;
 
 public class MathxTest {
     
