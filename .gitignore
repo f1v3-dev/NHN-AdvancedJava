@@ -3,3 +3,6 @@
 **/tutorials
 **/out
 **/.idea
+*.class
+.classpath
+.project

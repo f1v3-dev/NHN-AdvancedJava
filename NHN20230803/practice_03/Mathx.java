@@ -1,5 +1,8 @@
 package NHN20230803.practice_03;
 
+import java.util.function.BinaryOperator;
+import java.util.function.Predicate;
+
 public class Mathx {
 
     public static int sum(int n) {
@@ -10,7 +13,7 @@ public class Mathx {
         return sum(range.getUpperBound()) - sum(range.getLowerBound() - 1);
     }
 
-    public static int gcd(int x, int y) {
+    public static long gcd(long x, long y) {
         if (x % y == 0) {
             return y;
         }
@@ -24,4 +27,29 @@ public class Mathx {
         return result;
     }
 
+    public static double reduce(BinaryOperation binaryOperation, double init, double... numbers) {
+        return reduceIf(x -> true, binaryOperation, init, numbers);
+    }
+
+    public static double reduceIf(Predicate predicate, BinaryOperation binaryOperation, double init, double... numbers) {
+        double result = init;
+
+        for (double number : numbers) {
+            if (predicate.test(number)) {
+                result = binaryOperation.apply(result, number);
+            }
+        }
+        return result;
+    }
+
+    public static <T> T reduceIf(Predicate<T> predicate, BinaryOperator<T> binaryOperation, T init, T... numbers) {
+        T result = init;
+
+        for (T number : numbers) {
+            if (predicate.test(number)) {
+                result = binaryOperation.apply(result, number);
+            }
+        }
+        return result;
+    }
 }

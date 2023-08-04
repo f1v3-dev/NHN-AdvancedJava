@@ -1,15 +1,20 @@
 package NHN20230803.practice_03;
 
-public class Fractional {
-    private int numerator;
-    private int denominator;
-//    private int[] rep;
+/**
+ * [How to design a data type?] 1. primitive operations to define a data type => ADT(abstract data
+ * type), where primitives = abstraction barrier 2. combinations (combinational operations) / add,
+ * multiply ...
+ */
+public class Fractional extends Number {
+    
+    private long numerator;
+    private long denominator;
 
-    public Fractional(int numerator, int denominator) {
+    public Fractional(long numerator, long denominator) {
         if (denominator == 0) {
             throw new IllegalArgumentException("denominator is zero(0)");
         }
-//        this.rep = new int[]{numerator, denominator};
+
         this.numerator = numerator;
         this.denominator = denominator;
         normalize();
@@ -17,34 +22,74 @@ public class Fractional {
     }
 
     // Getter, selector
-    public int numerator() {
+    public long getNumerator() {
         return this.numerator;
     }
 
-    public int denominator() {
+    public long getDenominator() {
         return this.denominator;
     }
 
     private void normalize() {
-        int gcdValue = Mathx.gcd(this.numerator, this.denominator);
+        long gcdValue = Mathx.gcd(this.numerator, this.denominator);
         this.numerator /= gcdValue;
         this.denominator /= gcdValue;
     }
 
     public Fractional add(Fractional arr) {
         return new Fractional(
-                this.numerator() * arr.denominator() + this.denominator() * arr.numerator(),
-                this.denominator() * arr.denominator());
+                this.getNumerator() * arr.getDenominator() + this.getDenominator() * arr.getNumerator(),
+                this.getDenominator() * arr.getDenominator());
+    }
+
+    public boolean equals(Fractional that) {
+        if (this == that)
+            return true;
+        if (that == null)
+            return false;
+        return (this.getNumerator() == that.getNumerator() && this.getDenominator() == that.getDenominator());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if (!(obj instanceof Fractional))
+            return false;
+        Fractional other = (Fractional) obj;
+        return this.equals(other);
     }
 
     @Override
     public String toString() {
-        return this.numerator() + "/" + this.denominator();
+        return "Fractional [numerator=" + numerator + ", denominator=" + denominator + "]";
     }
 
-    public boolean equals(Fractional that) {
-        return (this.numerator() == that.numerator()
-                && this.denominator() == that.denominator());
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        long result = 1;
+        result = prime * result + this.getNumerator();
+        result = prime * result + this.getDenominator();
+        return (int) result;
     }
 
+    @Override
+    public int intValue() {
+        return (int) this.longValue();
+    }
+
+    @Override
+    public long longValue() {
+        return (long) (this.getNumerator() / this.getDenominator());
+    }
+
+    @Override
+    public double doubleValue() {
+        return ((double) this.getNumerator() / (double) this.getDenominator());
+    }
+
+    @Override
+    public float floatValue() {
+        return (float) this.doubleValue();
+    }
 }

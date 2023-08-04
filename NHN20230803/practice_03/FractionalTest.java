@@ -47,9 +47,13 @@ public class FractionalTest {
                 new Fractional(4, 8),
                 new Fractional(5, 10)
         };
-
+        
         for (Fractional r : rs) {
-            System.out.println(r.toString());
+            // System.out.println("r.intValue() = " + r.intValue());
         }
+
+        System.out.println(Mathx.reduceIf(x -> true, Fractional::add, rs[0], rs[1], rs[2], rs[3]));
+        System.out.println(Mathx.reduceIf(x -> true, (x, y) -> x + y, "", "a", "b"));
+
     }
 }
