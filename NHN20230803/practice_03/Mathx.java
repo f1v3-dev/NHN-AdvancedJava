@@ -1,4 +1,4 @@
-package practice;
+package practice_03;
 
 public class Mathx {
 

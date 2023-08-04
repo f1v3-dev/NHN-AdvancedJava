@@ -1,4 +1,6 @@
-package NHN20230801.practice;
+package practice_01;
+
+import practice_01.Mathx;
 
 // 변수명 : Sum
 // 값 : { ... }

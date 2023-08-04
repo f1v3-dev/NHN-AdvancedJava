@@ -1,6 +1,4 @@
-package practice;
-
-import java.util.Arrays;
+package practice_03;
 
 public class FractionalTest {
 

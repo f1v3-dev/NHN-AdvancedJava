@@ -1,4 +1,5 @@
-package NHN20230801.practice;
+package practice_01;
+
 public final class Multiply implements BinaryOperation{
 
     @Override
