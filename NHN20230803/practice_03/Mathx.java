@@ -1,7 +1,9 @@
 package NHN20230803.practice_03;
 
+import java.lang.reflect.Parameter;
 import java.util.function.BinaryOperator;
 import java.util.function.Predicate;
+import java.util.regex.Pattern;
 
 public class Mathx {
 
@@ -41,6 +43,15 @@ public class Mathx {
     public static <T> T reduceIf(Predicate<T> predicate, BinaryOperator<T> binaryOperation, T init, T... numbers) {
         T result = init;
 
+        /*
+        // 배열만 들어올 수 있는 코드가 되어버린다.
+        for (int index = 0; index <= numbers.length; index++) {
+            if (predicate.test(numbers[index])) {
+                result = binaryOperation.apply(result, numbers[index]);
+            }
+        }
+        */
+
         for (T number : numbers) {
             if (predicate.test(number)) {
                 result = binaryOperation.apply(result, number);
@@ -48,4 +59,5 @@ public class Mathx {
         }
         return result;
     }
+
 }
