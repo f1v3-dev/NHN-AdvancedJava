@@ -1,6 +1,6 @@
 package NHN20230808;
 
-class Typing{
+public class Typing{
     public static void canFly(Animal x) {
         System.out.println( x.type() + (x.flyable() ? "는(은) 날 수 있어.": "는(은) 못 날아.") );
     }
@@ -21,10 +21,3 @@ class Typing{
         Typing.canSwim(new 펭귄());
     }
 }
-
-
-//// Jupyter Notebook에서만 
-//      Typing.날수있니( new 박쥐() ); -> 박쥐는 날 수 있어
-//        Typing.날수있니( new 참새() ); -> 참새는 날 수 있어
-//        Typing.날수있니( new 펭귄() );
-
