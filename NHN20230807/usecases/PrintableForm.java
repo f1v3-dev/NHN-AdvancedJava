@@ -29,7 +29,7 @@ public final class PrintableForm implements Visitor {
     public void visit(Or e) {
         printableFormStringBuilder.append("(");
         e.getLeft().accept(this);
-        printableFormStringBuilder.append(e.getOperator());
+        printableFormStringBuilder.append("|");
         e.getRight().accept(this);
         printableFormStringBuilder.append(")");
     }

@@ -1,6 +1,7 @@
 package NHN20230803.practice_03;
 
 import java.lang.reflect.Parameter;
+import java.util.Iterator;
 import java.util.function.BinaryOperator;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
@@ -36,7 +37,10 @@ public class Mathx {
 //        return result;
 //    }
 
-    public static <T> T reduce(BinaryOperator<T> binaryOperation, T init, T... numbers) {
+    public static <T> T reduce(BinaryOperator<T> binaryOperation, T init, Iterator<T> iterator) {
+        if (iterator.hasNext()) {
+
+        }
         return reduceIf(x -> true, binaryOperation, init, numbers);
     }
 
