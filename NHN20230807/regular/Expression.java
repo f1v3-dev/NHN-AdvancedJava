@@ -16,6 +16,7 @@ public interface Expression {
         return new Star(this);
     }
 
-    public String literals();
+    public void accept(Visitor visitor);
+
 
 }

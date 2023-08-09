@@ -13,12 +13,7 @@ public final class Star implements Expression {
     }
 
     @Override
-    public String toString() {
-        return "(" + this.getExpression() + ")" + "*";
-    }
-
-    @Override
-    public String literals() {
-        return this.getExpression().literals();
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
     }
 }

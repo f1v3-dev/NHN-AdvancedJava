@@ -13,13 +13,8 @@ public final class Literal implements Expression {
     }
 
     @Override
-    public String toString() {
-        return String.valueOf(this.getCharacter());
-    }
-
-    @Override
-    public final String literals() {
-        return String.valueOf(this.getCharacter());
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
     }
 
 }

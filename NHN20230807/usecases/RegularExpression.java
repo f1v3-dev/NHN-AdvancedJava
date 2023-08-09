@@ -13,11 +13,13 @@ public class RegularExpression {
 
 //        BinaryOperation e = new Or(a, b);
 
-        System.out.println(a_ab); // (a|(ab))
-        System.out.println(a_ab.literals()); // aab
+//        System.out.println(a_ab); // (a|(ab))
+        System.out.println(PrintableForm.of(a_ab));
+        System.out.println(Literals.of(a_ab)); // aab
 
-        System.out.println(ba_a0n); // ((ba)|(ε|(a)*))
-        System.out.println(ba_a0n.literals()); // baa
+//        System.out.println(ba_a0n); // ((ba)|(ε|(a)*))
+        System.out.println(PrintableForm.of(ba_a0n));
+        System.out.println(Literals.of(ba_a0n)); // baa
 
     }
 }
