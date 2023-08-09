@@ -16,4 +16,9 @@ public final class Star implements Expression {
     public String toString() {
         return "(" + this.getExpression() + ")" + "*";
     }
+
+    @Override
+    public String literals() {
+        return this.getExpression().literals();
+    }
 }

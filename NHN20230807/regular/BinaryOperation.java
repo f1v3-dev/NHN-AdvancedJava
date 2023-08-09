@@ -28,4 +28,7 @@ class BinaryOperation {
         return "(" + this.getLeft() + this.getOperator() + this.getRight() + ")";
     }
 
+    public String literals() {
+        return this.getLeft().literals() + this.getRight().literals();
+    }
 }

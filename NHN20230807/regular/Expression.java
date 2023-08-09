@@ -16,4 +16,6 @@ public interface Expression {
         return new Star(this);
     }
 
+    public String literals();
+
 }

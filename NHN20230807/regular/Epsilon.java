@@ -10,4 +10,8 @@ public class Epsilon implements Expression {
         return "\u03B5";
     }
 
+    @Override
+    public final String literals() {
+        return "";
+    }
 }

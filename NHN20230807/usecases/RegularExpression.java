@@ -14,7 +14,10 @@ public class RegularExpression {
 //        BinaryOperation e = new Or(a, b);
 
         System.out.println(a_ab); // (a|(ab))
+        System.out.println(a_ab.literals()); // aab
+
         System.out.println(ba_a0n); // ((ba)|(ε|(a)*))
+        System.out.println(ba_a0n.literals()); // baa
 
     }
 }

@@ -17,4 +17,9 @@ public final class Literal implements Expression {
         return String.valueOf(this.getCharacter());
     }
 
+    @Override
+    public final String literals() {
+        return String.valueOf(this.getCharacter());
+    }
+
 }
