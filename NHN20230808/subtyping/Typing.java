@@ -5,15 +5,15 @@ abstract class 동물 {
         return this.getClass().getSimpleName();
     }
 
-    public void 날수있니() {
-        System.out.println(this.type() + "는(은) 날 수 없어.");
+    public boolean 날수있니() {
+        return false;
     }
 }
 
 class 새 extends 동물 {
     @Override
-    public void 날수있니() {
-        System.out.println(this.type() + "는(은) 날 수 있어.");
+    public boolean 날수있니() {
+        return true;
     }
 }
 
@@ -27,16 +27,15 @@ class 참새 extends 새 {
 
 class 펭귄 extends 새 {
     @Override
-    public void 날수있니() {
-        System.out.println("펭귄은 날 수 없어.");
+    public boolean 날수있니() {
+        return false;
     }
 }
 
 
-
-public class Typing{
+public class Typing {
     public static void 날수있니(동물 x) {
-        System.out.println( x.type() + (x.날수있니() ? "는(은) 날 수 있어.": "는(은) 못 날아.") );
+        System.out.println(x.type() + (x.날수있니() ? "는(은) 날 수 있어." : "는(은) 못 날아."));
     }
 
     public static void main(String[] args) {
