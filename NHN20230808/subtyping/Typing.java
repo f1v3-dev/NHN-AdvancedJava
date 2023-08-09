@@ -46,7 +46,7 @@ public class Typing {
 
         // Override의 예시 -> RTTI를 감춘 것
         for (동물 한마리 : 동물들) {
-            한마리.날수있니();
+            Typing.날수있니(한마리);
         }
 
     }
