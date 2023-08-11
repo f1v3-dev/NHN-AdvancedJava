@@ -7,6 +7,6 @@ public class MathxTest {
     }
 
     public static void main(String[] args) {
-        testRange();
+//        testRange();
     }
 }

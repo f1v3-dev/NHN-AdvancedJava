@@ -13,6 +13,10 @@ public class Range {
         isPositive();
     }
 
+    public Range(int upperBound) {
+        this(0, upperBound);
+    }
+
     public int getLowerBound() {
         return lowerBound;
     }

@@ -16,7 +16,6 @@ public class Mathx {
         return result;
     }
 
-
 }
 
 
