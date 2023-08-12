@@ -1,4 +1,4 @@
-package Recursion;
+package Study.Recursion;
 
 public class Mathx {
     public static int fibonacci(int num) {

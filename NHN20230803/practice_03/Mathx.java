@@ -37,31 +37,31 @@ public class Mathx {
 //        return result;
 //    }
 
-    public static <T> T reduce(BinaryOperator<T> binaryOperation, T init, Iterator<T> iterator) {
-        if (iterator.hasNext()) {
+//    public static <T> T reduce(BinaryOperator<T> binaryOperation, T init, Iterator<T> iterator) {
+//        if (iterator.hasNext()) {
+//
+//        }
+//        return reduceIf(x -> true, binaryOperation, init, numbers);
+//    }
+//
+//    public static <T> T reduceIf(Predicate<T> predicate, BinaryOperator<T> binaryOperation, T init, T... numbers) {
+//        T result = init;
+//
+//        /*
+//        // 배열만 들어올 수 있는 코드가 되어버린다.
+//        for (int index = 0; index <= numbers.length; index++) {
+//            if (predicate.test(numbers[index])) {
+//                result = binaryOperation.apply(result, numbers[index]);
+//            }
+//        }
+//        */
 
-        }
-        return reduceIf(x -> true, binaryOperation, init, numbers);
-    }
-
-    public static <T> T reduceIf(Predicate<T> predicate, BinaryOperator<T> binaryOperation, T init, T... numbers) {
-        T result = init;
-
-        /*
-        // 배열만 들어올 수 있는 코드가 되어버린다.
-        for (int index = 0; index <= numbers.length; index++) {
-            if (predicate.test(numbers[index])) {
-                result = binaryOperation.apply(result, numbers[index]);
-            }
-        }
-        */
-
-        for (T number : numbers) {
-            if (predicate.test(number)) {
-                result = binaryOperation.apply(result, number);
-            }
-        }
-        return result;
-    }
+//        for (T number : numbers) {
+//            if (predicate.test(number)) {
+//                result = binaryOperation.apply(result, number);
+//            }
+//        }
+//        return result;
+//    }
 
 }

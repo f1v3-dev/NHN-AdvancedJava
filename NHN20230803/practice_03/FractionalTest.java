@@ -52,9 +52,9 @@ public class FractionalTest {
             // System.out.println("r.intValue() = " + r.intValue());
         }
 
-        System.out.println(Mathx.reduce((x, y) -> x + y, "", "Hello", " world!"));
-        System.out.println(Mathx.reduceIf(x -> true, Fractional::add, rs[0], rs[1], rs[2], rs[3]));
-        System.out.println(Mathx.reduceIf(x -> true, (x, y) -> x + y, "", "a", "b"));
+//        System.out.println(Mathx.reduce((x, y) -> x + y, "", "Hello", " world!"));
+//        System.out.println(Mathx.reduceIf(x -> true, Fractional::add, rs[0], rs[1], rs[2], rs[3]));
+//        System.out.println(Mathx.reduceIf(x -> true, (x, y) -> x + y, "", "a", "b"));
 
     }
 }

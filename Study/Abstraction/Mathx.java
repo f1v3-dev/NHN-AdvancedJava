@@ -1,4 +1,4 @@
-package Abstraction;
+package Study.Abstraction;
 
 public class Mathx {
 

@@ -1,4 +1,4 @@
-package Recursion;
+package Study.Recursion;
 
 import static Recursion.Mathx.fibonacci;
 

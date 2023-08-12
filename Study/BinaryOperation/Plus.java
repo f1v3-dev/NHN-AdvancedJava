@@ -1,4 +1,4 @@
-package BinaryOperation;
+package Study.BinaryOperation;
 
 public class Plus implements BinaryOperation {
 

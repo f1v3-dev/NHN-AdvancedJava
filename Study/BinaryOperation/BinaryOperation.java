@@ -1,4 +1,4 @@
-package BinaryOperation;
+package Study.BinaryOperation;
 
 @FunctionalInterface
 public interface BinaryOperation {

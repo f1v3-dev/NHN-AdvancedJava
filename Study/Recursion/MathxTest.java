@@ -1,4 +1,4 @@
-package Recursion;
+package Study.Recursion;
 
 public class MathxTest {
 

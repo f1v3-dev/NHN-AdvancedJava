@@ -1,4 +1,4 @@
-package Abstraction;
+package Study.Abstraction;
 
 @FunctionalInterface
 public interface Predicate {
